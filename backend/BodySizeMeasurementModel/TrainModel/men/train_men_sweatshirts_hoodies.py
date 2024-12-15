@@ -39,6 +39,7 @@ valid_categories = category_encoder.classes_
 print("\nValid Styles:", valid_styles)
 print("Valid Categories:", valid_categories)
 
+<<<<<<< HEAD
 def match_category_input(user_input, categories):
     user_input = user_input.strip().lower()
     for category in categories:
@@ -47,6 +48,8 @@ def match_category_input(user_input, categories):
             return category
     return None
 
+=======
+>>>>>>> 71c0661c0e7e537aa71dec2e942c463d0d4ca099
 def predict_size():
     print("\n--- Enter the following details to predict your size ---")
     try:
@@ -54,11 +57,17 @@ def predict_size():
         if style not in valid_styles:
             raise ValueError(f"Invalid style. Choose from {list(valid_styles)}.")
 
+<<<<<<< HEAD
         category = input(f"Category (enter full name or components): ").strip()
         matched_category = match_category_input(category, valid_categories)
 
         if not matched_category:
             raise ValueError(f"Invalid category. Please enter a valid full category or component.")
+=======
+        category = input(f"Category (choose from {list(valid_categories)}): ")
+        if category not in valid_categories:
+            raise ValueError(f"Invalid category. Choose from {list(valid_categories)}.")
+>>>>>>> 71c0661c0e7e537aa71dec2e942c463d0d4ca099
 
         chest_cm = float(input("Chest size (in cm): "))
         waist_cm = float(input("Waist size (in cm): "))
@@ -66,7 +75,11 @@ def predict_size():
         neckline_cm = float(input("Neckline size (in cm): "))
 
         style_encoded = style_encoder.transform([style])[0]
+<<<<<<< HEAD
         category_encoded = category_encoder.transform([matched_category])[0]
+=======
+        category_encoded = category_encoder.transform([category])[0]
+>>>>>>> 71c0661c0e7e537aa71dec2e942c463d0d4ca099
         
         input_data = pd.DataFrame(
             [[style_encoded, category_encoded, chest_cm, waist_cm, arm_length_cm, neckline_cm]],

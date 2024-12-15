@@ -36,6 +36,7 @@ valid_categories = category_encoder.classes_
 
 print("Valid Categories:", valid_categories)
 
+<<<<<<< HEAD
 def match_category_input(user_input, categories):
     user_input = user_input.strip().lower()
     for category in categories:
@@ -56,6 +57,18 @@ def predict_size():
         foot_length_cm = float(input("foot length (in cm): "))
 
         category_encoded = category_encoder.transform([matched_category])[0]
+=======
+def predict_size():
+    print("\n--- Enter the following details to predict your size ---")
+    try:
+        category = input(f"Category (choose from {list(valid_categories)}): ")
+        if category not in valid_categories:
+            raise ValueError(f"Invalid category. Choose from {list(valid_categories)}.")
+
+        foot_length_cm = float(input("foot length (in cm): "))
+
+        category_encoded = category_encoder.transform([category])[0]
+>>>>>>> 71c0661c0e7e537aa71dec2e942c463d0d4ca099
         
         input_data = pd.DataFrame(
             [[category_encoded, foot_length_cm]],
