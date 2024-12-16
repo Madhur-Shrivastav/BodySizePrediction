@@ -83,4 +83,3 @@ def predict_size():
 
 
 predict_size()
-

@@ -37,7 +37,6 @@ def train_model(length_column):
     print(f"Model Accuracy (using {length_column}): {accuracy * 100:.2f}%")
     return model, scaler
 
-<<<<<<< HEAD
 def match_category_input(user_input, categories):
     user_input = user_input.strip().lower()
     for category in categories:
@@ -54,14 +53,6 @@ def predict_size():
 
         if not matched_category:
             raise ValueError(f"Invalid category. Please enter a valid full category or component.")
-=======
-def predict_size():
-    print("\n--- Enter the following details to predict your jeans/trousers size ---")
-    try:
-        category = input(f"Category (choose from {list(valid_categories)}): ")
-        if category not in valid_categories:
-            raise ValueError(f"Invalid category. Choose from {list(valid_categories)}.")
->>>>>>> 71c0661c0e7e537aa71dec2e942c463d0d4ca099
         
         waist_cm = float(input("Waist size (in cm): "))
         low_hip_cm = float(input("Low hip size (in cm): "))
@@ -84,16 +75,6 @@ def predict_size():
         
         model, scaler = train_model(selected_length)
         
-<<<<<<< HEAD
-=======
-        # length_value = float(input(f"Enter the {selected_length} value (in cm): "))
-        
-        # input_data = pd.DataFrame(
-        #     [[category_encoder.transform([category])[0], waist_cm, low_hip_cm, length_value]],
-        #     columns=base_features + [selected_length]
-        # )
-        
->>>>>>> 71c0661c0e7e537aa71dec2e942c463d0d4ca099
         random_length_value = random.choice(df[selected_length].dropna().values)
         print(f"\nRandomly selected {selected_length} value: {random_length_value} cm")
         
@@ -115,10 +96,6 @@ def predict_size():
 
 predict_size()
 
-<<<<<<< HEAD
 # Madhur's chest,waist,arm length,neckline,hip,inseam,foot= 95,81,56,37,94,80,25 in cm
 # Mama's chest,waist,arm length,neckline,hip,inseam,foot=110,110,55,41,109,63,25 in cm
 # Pranshu's chest,waist,arm length,neckline,hip,inseam,foot= 95,83,56,38,94,68,  in cm
-=======
-# my waist,hip,inseam= 81,94,80 in cm
->>>>>>> 71c0661c0e7e537aa71dec2e942c463d0d4ca099
